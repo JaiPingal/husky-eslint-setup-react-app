@@ -2,6 +2,7 @@ import React from 'react';
 
 const SignupButton = () => {
   const handleSignup = () => {
+    
     alert('Sign up successful!');
   };
 
