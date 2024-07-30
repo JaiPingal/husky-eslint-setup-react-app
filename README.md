@@ -241,87 +241,87 @@ ESLint is a tool for identifying and fixing problems in JavaScript code. It help
 
 1. Error Detection
 
-  ∘ Description: ESLint analyzes your JavaScript code to find syntax errors, potential bugs, and other issues. This helps catch problems before they become serious.
-  ∘ Benefit: Detecting errors early in the development process can save time and reduce the number of bugs in production.
+  * Description: ESLint analyzes your JavaScript code to find syntax errors, potential bugs, and other issues. This helps catch problems before they become serious.
+  * Benefit: Detecting errors early in the development process can save time and reduce the number of bugs in production.
 2. Code Quality
 
-  ∘ Description: ESLint enforces coding standards and best practices, ensuring that your codebase is clean, readable, and maintainable.
-  ∘ Benefit: A high-quality codebase is easier to maintain, understand, and extend.
+  * Description: ESLint enforces coding standards and best practices, ensuring that your codebase is clean, readable, and maintainable.
+  * Benefit: A high-quality codebase is easier to maintain, understand, and extend.
 
 3. Early Bug Prevention
 
-  ∘ Description: ESLint helps you prevent bugs before they become hard-to-debug problems down the road. It is highly customizable,
+  * Description: ESLint helps you prevent bugs before they become hard-to-debug problems down the road. It is highly customizable,
     allowing you to tweak its rules to   match your project's coding style.
-  ∘ Benefit: Customizable rules enable teams to enforce their own standards and prevent common pitfalls specific to their codebase.
+  * Benefit: Customizable rules enable teams to enforce their own standards and prevent common pitfalls specific to their codebase.
 
 # Husky
 Husky is a tool that allows you to easily manage Git hooks, which are scripts that run automatically at certain points in your Git workflow.
 
 1. Automated Checks
 
-  ∘ Description: Husky can run scripts before commits, pushes, and other Git actions to ensure that your code meets certain standards.
-  ∘ Benefit: Automating checks helps maintain code quality and consistency across the team.
+  * Description: Husky can run scripts before commits, pushes, and other Git actions to ensure that your code meets certain standards.
+  * Benefit: Automating checks helps maintain code quality and consistency across the team.
 
 2. Pre-commit Hooks
 
-  ∘ Description: Use Husky to set up pre-commit hooks that run linting or testing scripts before allowing a commit to proceed.
-  ∘ Benefit: Prevents bad code from being committed, reducing the number of issues that make it into the main codebase.
+  * Description: Use Husky to set up pre-commit hooks that run linting or testing scripts before allowing a commit to proceed.
+  * Benefit: Prevents bad code from being committed, reducing the number of issues that make it into the main codebase.
 
 3. Easy Configuration
 
-  ∘ Description: Husky is easy to set up and configure, with straightforward integration into your existing workflows.
-  ∘ Benefit: Quick to adopt and start using, without significant overhead.
+  * Description: Husky is easy to set up and configure, with straightforward integration into your existing workflows.
+  * Benefit: Quick to adopt and start using, without significant overhead.
 
 # Prettier
 Prettier is an opinionated code formatter that enforces a consistent style by parsing your code and re-printing it with its own rules.
 
 1. Consistent Formatting
 
-  ∘ Description: Prettier enforces consistent code formatting, removing the need for debates over style issues.
-  ∘ Benefit: Consistent code style makes the codebase more readable and easier to work with.
+  * Description: Prettier enforces consistent code formatting, removing the need for debates over style issues.
+  * Benefit: Consistent code style makes the codebase more readable and easier to work with.
   
 2. Automated Formatting
 
-  ∘ Description: Prettier can automatically format your code on save or before commits.
-  ∘ Benefit: Saves time and reduces errors by automating the formatting process.
+  * Description: Prettier can automatically format your code on save or before commits.
+  * Benefit: Saves time and reduces errors by automating the formatting process.
 3. Integration with ESLint
 
-  ∘ Description: Prettier can be integrated with ESLint to run alongside it, ensuring both style and code quality are maintained.
-  ∘ Benefit: Combines the benefits of linting and formatting in a single workflow.
+  * Description: Prettier can be integrated with ESLint to run alongside it, ensuring both style and code quality are maintained.
+  * Benefit: Combines the benefits of linting and formatting in a single workflow.
 
 # lint-staged
 lint-staged is a tool that allows you to run scripts on staged files in Git.
 
 1. Targeted Linting
 
-  ∘ Description: lint-staged only lints files that are staged for commit, improving performance and relevance.
-  ∘ Benefit: Saves time by only checking files that are about to be committed.
+  * Description: lint-staged only lints files that are staged for commit, improving performance and relevance.
+  * Benefit: Saves time by only checking files that are about to be committed.
 
 2. Automated Fixes
 
-  ∘ Description: lint-staged can automatically fix linting errors before committing changes.
-  ∘ Benefit: Ensures that only clean, linted code is committed, reducing the chance of introducing errors.
+  * Description: lint-staged can automatically fix linting errors before committing changes.
+  * Benefit: Ensures that only clean, linted code is committed, reducing the chance of introducing errors.
 
 3. Customizable Workflow
 
-  ∘ Description: You can configure lint-staged to run any scripts you want, making it flexible and adaptable to your workflow.
-  ∘ Benefit: Adaptable to different project needs and workflows.
+  * Description: You can configure lint-staged to run any scripts you want, making it flexible and adaptable to your workflow.
+  * Benefit: Adaptable to different project needs and workflows.
 
 # commitlint
 commitlint checks if your commit messages meet the conventional commit format.
 
 1. Consistent Commit Messages
 
-  ∘ Description: commitlint enforces a consistent commit message format based on predefined rules.
-  ∘ Benefit: Consistent commit messages make it easier to read and understand the project's history.
+  * Description: commitlint enforces a consistent commit message format based on predefined rules.
+  * Benefit: Consistent commit messages make it easier to read and understand the project's history.
 
 2. Automated Validation
 
-  ∘ Description: commitlint runs automatically to validate commit messages against the configured rules.
-  ∘ Benefit: Prevents poorly formatted commit messages from being pushed, ensuring clarity and consistency.
+  * Description: commitlint runs automatically to validate commit messages against the configured rules.
+  * Benefit: Prevents poorly formatted commit messages from being pushed, ensuring clarity and consistency.
 
 # Custom Rules
 
-  ∘ Description: commitlint allows you to define custom rules for commit messages to match your project's needs.
-  ∘ Benefit: Flexibility to enforce specific guidelines and standards for commit messages.
+  * Description: commitlint allows you to define custom rules for commit messages to match your project's needs.
+  * Benefit: Flexibility to enforce specific guidelines and standards for commit messages.
 
