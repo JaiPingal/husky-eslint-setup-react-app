@@ -10,7 +10,8 @@
         "plugin:import/errors",
         "plugin:react/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:local-rules/all"
     ],
     "parserOptions": {
         "ecmaVersion": 2021,
@@ -24,7 +25,8 @@
         "react-hooks",
         "import",
         "jsx-a11y",
-        "jest"
+        "jest",
+        "local-rules"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
@@ -45,7 +47,8 @@
         "react-hooks/exhaustive-deps": "warn",
         "comma-dangle": "off",
         "react-native/no-inline-styles": "Off",
-        "eol-last": "warn"
+        "eol-last": "warn",
+        "local-rules/no-hardcoded-keys": "error"
     },
 
     "settings": {
