@@ -1,8 +1,8 @@
-# Husky ESLint Setup for React App
+### Husky ESLint Setup for React App
 
 This repository demonstrates how to set up Husky, ESLint, and custom local rules in a React application to ensure code quality and consistency.
 
-## Table of Contents
+### Table of Contents
 
 1. [Project Setup](#project-setup)
 2. [Husky Installation and Configuration](#husky-installation-and-configuration)
@@ -14,7 +14,7 @@ This repository demonstrates how to set up Husky, ESLint, and custom local rules
 8. [References](#references)
 9. [Learning Points](#learning-points)
 
-## Descriptions
+### Descriptions 
 This setup integrates Husky, ESLint, Prettier, lint-staged, and commitlint into a React application to ensure high code quality and consistency.
 
 * Husky: Manages Git hooks to run scripts like linting before commits, ensuring code quality.
@@ -25,54 +25,57 @@ This setup integrates Husky, ESLint, Prettier, lint-staged, and commitlint into 
 
 * This setup helps in maintaining a clean, readable, and maintainable codebase by automating checks and enforcing standards throughout the development process.
 
-## Project Setup
+### Project Setup
 
-# Getting Started with Create React App
+**Getting Started with Create React App**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-# OR
-# `npx create-react-app my-app`
-# `cd my-app`
-# `npm start`
- ## Initialize the Project
- #  `npm init -y`
+                -OR-
+```bash
+$ npx create-react-app my-app
+$ cd my-app
+$ npm start
+```
 
-# Install Dependencies
-    Install ESLint, Husky, lint-staged, and other required packages:
-    
-  #  `npm install --save-dev eslint lint-staged husky @commitlint/{cli,config-conventional} eslint-plugin-local-rules`
+ **Install Dependencies**
 
+Install ESLint, Husky, lint-staged, and other required packages:
+```bash
+$ npm install --save-dev eslint lint-staged husky @commitlint/{cli,config-conventional} eslint-plugin-local-rules
+```
 
-## Husky Installation and Configuration
+### Husky Installation and Configuration
 
-# `npx husky init`
+```bash
+$ npx husky init
+```
 This will create a .husky directory and update the package.json with a prepare script.
 
-# 1 Configure Husky Hooks
-1. Commit Message Hook: Create .husky/commit-msg with the following content:
-    ```base
-     npx --no -- commitlint --edit $1
-    ```
-2. Pre-commit Hook: Create .husky/pre-commit with the following content:
-    ```base
-     npx lint-staged
-    ```
+**1 Configure Husky Hooks**
+* Commit Message Hook: Create .husky/commit-msg with the following content:
+```base
+npx --no -- commitlint --edit $1
+```
+* Pre-commit Hook: Create .husky/pre-commit with the following content:
+```base
+npx lint-staged
+```
     
 
-# 2 Configure lint-staged
-    Add the following configuration to your package.json to specify which files should be linted and automatically fixed before committing:
+**2 Configure lint-staged**
+Add the following configuration to your package.json to specify which files should be linted and automatically fixed before committing:
 
 ```json
-    "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
-    }
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+}
 ```
 This configuration ensures that all JavaScript and TypeScript files will be linted and fixed (if necessary) before being committed.
 
 
-## ESLint Configuration
- 1 Create ESLint Configuration
+### ESLint Configuration
 
+ **1 Create ESLint Configuration**
  Add an .eslintrc.json file with the following content:
 
  ```json
@@ -134,20 +137,20 @@ This configuration ensures that all JavaScript and TypeScript files will be lint
     }
   }
 }
-
  ```
-2. Add ESLint Scripts 
+***2. Add ESLint Scripts***
 Update package.json with the following linting scripts:
 ```json
-    "scripts": {
+"scripts": {
   "lint": "eslint \"src/**/*.{js,jsx}\"",
   "lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix"
 }
 ```
 
-## Local Rules
+### Local Rules
 The eslint-plugin-local-rules plugin allows you to define and enforce custom linting rules.
- 1 Create Local Rules Configuration
+
+ ***1 Create Local Rules Configuration***
 
  Add an eslint-local-rules.js file with the following content:
  
@@ -172,15 +175,12 @@ The eslint-plugin-local-rules plugin allows you to define and enforce custom lin
           // Check for variables with 'KEY' or 'SECRET' in their name
           if (/.*(KEY|SECRET).*/.test(variableName)) {
             if (
-              variableValue &&
-                            variableValue.type === 'Literal' &&
-                            typeof variableValue.value === 'string'
+              variableValue && variableValue.type === 'Literal' && typeof variableValue.value === 'string'
             ) {
               context.report({
                 node,
                 //   message: 'Secret keys should not be hardcoded.',
                 message: 'Remove hardcoded secrets. Configure your keys using environment variables.',
-
               });
             }
           }
@@ -193,27 +193,28 @@ The eslint-plugin-local-rules plugin allows you to define and enforce custom lin
  // other local rules  
  ```
 
-2. Define Local Rules
-    Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example, the no-hardcoded-keys rule is enforced:
+***2. Define Local Rules***
+Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example, the no-hardcoded-keys rule is enforced:
 
 ```json
-    "rules": {
+"rules": {
   "local-rules/no-hardcoded-keys": "error"
 }
-
 ```
- Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example:
- ```json
-      "plugins": [
-    "local-rules"
-  ]
- ```
 
- # Test Component for local-rules and eslint
-    To test the local rules, use the following SignupButton component:
+Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example:
+
+```json
+"plugins": [
+  "local-rules"
+]
+```
+
+### Test Component for local-rules and eslint
+To test the local rules, use the following SignupButton component:
 
  ```js
-    import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // Test local rule violations
 // const myApp_KEY = "3g2uhjirkdddd4jht93onn54930";
@@ -243,51 +244,57 @@ export default SignupButton;
 
  ```
 
-## Using the Setup
-1. Run Linting
-    To manually lint your code:
-## `npm run lint`
+### Using the Setup
 
-    To automatically fix linting errors:
-## `npm run lint:fix`
+**1. Run Linting**
+To manually lint your code:
+```bash
+$ npm run lint
+```
 
-2. Commit Changes
-    Husky will automatically run linting checks on staged files before commits. If linting errors are found, the commit will be blocked until they are resolved.
+To automatically fix linting errors:
+```bash
+$ npm run lint:fix
+```
 
-## Troubleshooting
+**2. Commit Changes**
+Husky will automatically run linting checks on staged files before commits. If linting errors are found, the commit will be blocked until they are resolved.
 
-1. Husky Hooks Not Running
+### Troubleshooting
+
+**1. Husky Hooks Not Running**
 
 Ensure Husky is properly installed and the hooks are executable. Reinstall Husky if necessary.
 
-2. ESLint Errors
+**2. ESLint Errors**
 
 Verify your .eslintrc.json configuration. Ensure all required plugins and rules are correctly installed and configured.
 
 For more information on Husky, ESLint, and local rules, refer to their respective documentation:
 
-## References
+### References
 For more information on Husky, ESLint, and local rules, refer to their respective documentation:
 
-1. Husky Documentation(https://typicode.github.io/husky/)
-2. ESLint Documentation(https://eslint.org/)
-3. eslint-plugin-local-rules Documentation(https://www.npmjs.com/package/eslint-plugin-local-rules)
-7. eslint-plugin-react Documentation(https://www.npmjs.com/package/eslint-plugin-react)
-4. eslint-plugin-react-hooks Documentation(https://www.npmjs.com/package/eslint-plugin-react-hooks)
-5. lint-staged Documentation(https://www.npmjs.com/package/lint-staged)
-6. prettier Documentation(https://www.npmjs.com/package/prettier)
-7. @commitlint/cli Documentation(https://commitlint.js.org/guides/getting-started.html)
+1. [Husky Documentation](https://typicode.github.io/husky/)
+2. [ESLint Documentation](https://eslint.org/)
+3. [eslint-plugin-local-rules Documentation](https://www.npmjs.com/package/eslint-plugin-local-rules)
+7. [eslint-plugin-react Documentation](https://www.npmjs.com/package/eslint-plugin-react)
+4. [eslint-plugin-react-hooks Documentation](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+5. [lint-staged Documentation](https://www.npmjs.com/package/lint-staged)
+6. [prettier Documentation](https://www.npmjs.com/package/prettier)
+7. [@commitlint/cli Documentation](https://commitlint.js.org/guides/getting-started.html)
 
-
+- - - -
 ## Learning Points
 
-# ESLint
+### ESLint
 ESLint is a tool for identifying and fixing problems in JavaScript code. It helps developers maintain consistent coding styles and catch errors early in the development process.
 
 1. Error Detection
 
   * Description: ESLint analyzes your JavaScript code to find syntax errors, potential bugs, and other issues. This helps catch problems before they become serious.
   * Benefit: Detecting errors early in the development process can save time and reduce the number of bugs in production.
+
 2. Code Quality
 
   * Description: ESLint enforces coding standards and best practices, ensuring that your codebase is clean, readable, and maintainable.
@@ -299,7 +306,7 @@ ESLint is a tool for identifying and fixing problems in JavaScript code. It help
     allowing you to tweak its rules to   match your project's coding style.
   * Benefit: Customizable rules enable teams to enforce their own standards and prevent common pitfalls specific to their codebase.
 
-# Husky
+### Husky
 Husky is a tool that allows you to easily manage Git hooks, which are scripts that run automatically at certain points in your Git workflow.
 
 1. Automated Checks
@@ -317,7 +324,7 @@ Husky is a tool that allows you to easily manage Git hooks, which are scripts th
   * Description: Husky is easy to set up and configure, with straightforward integration into your existing workflows.
   * Benefit: Quick to adopt and start using, without significant overhead.
 
-# Prettier
+### Prettier
 Prettier is an opinionated code formatter that enforces a consistent style by parsing your code and re-printing it with its own rules.
 
 1. Consistent Formatting
@@ -334,13 +341,14 @@ Prettier is an opinionated code formatter that enforces a consistent style by pa
   * Description: Prettier can be integrated with ESLint to run alongside it, ensuring both style and code quality are maintained.
   * Benefit: Combines the benefits of linting and formatting in a single workflow.
 
-# lint-staged
+### lint-staged
+
 lint-staged is a tool that allows you to run scripts on staged files in Git.
 
 1. Targeted Linting
 
-  * Description: lint-staged only lints files that are staged for commit, improving performance and relevance.
-  * Benefit: Saves time by only checking files that are about to be committed.
+    * Description: lint-staged only lints files that are staged for commit, improving performance and relevance.
+    * Benefit: Saves time by only checking files that are about to be committed.
 
 2. Automated Fixes
 
@@ -352,20 +360,18 @@ lint-staged is a tool that allows you to run scripts on staged files in Git.
   * Description: You can configure lint-staged to run any scripts you want, making it flexible and adaptable to your workflow.
   * Benefit: Adaptable to different project needs and workflows.
 
-# commitlint
+### commitlint
 commitlint checks if your commit messages meet the conventional commit format.
 
 1. Consistent Commit Messages
-
   * Description: commitlint enforces a consistent commit message format based on predefined rules.
   * Benefit: Consistent commit messages make it easier to read and understand the project's history.
 
 2. Automated Validation
-
   * Description: commitlint runs automatically to validate commit messages against the configured rules.
   * Benefit: Prevents poorly formatted commit messages from being pushed, ensuring clarity and consistency.
 
-# Custom Rules
+### Custom Rules
 
   * Description: commitlint allows you to define custom rules for commit messages to match your project's needs.
   * Benefit: Flexibility to enforce specific guidelines and standards for commit messages.
