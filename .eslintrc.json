@@ -48,7 +48,8 @@
         "comma-dangle": "off",
         "react-native/no-inline-styles": "Off",
         "eol-last": "warn",
-        "local-rules/no-hardcoded-keys": "error"
+        "local-rules/no-hardcoded-keys": "error",
+        "no-unused-vars":"warn"
     },
 
     "settings": {

@@ -18,7 +18,7 @@ const SignupButton = () => {
 
   return (
     <button onClick={handleSignup} className='signup-button'>
-      Sign Up
+      Click here
     </button>
   );
 };
