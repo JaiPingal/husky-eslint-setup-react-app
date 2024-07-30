@@ -147,8 +147,53 @@ Update package.json with the following linting scripts:
 
 ## Local Rules
 The eslint-plugin-local-rules plugin allows you to define and enforce custom linting rules.
+ 1 Create Local Rules Configuration
 
-1. Define Local Rules
+ Add an eslint-local-rules.js file with the following content:
+ 
+ ```js
+ module.exports = {
+  'no-hardcoded-keys': {
+    meta: {
+      type: 'problem',
+      docs: {
+        description: 'Disallow hardcoded keys and allow keys using process.env',
+        category: 'Possible Errors',
+        recommended: true,
+      },
+      schema: [], // no options
+    },
+    create: function (context) {
+      return {
+        VariableDeclarator(node) {
+          const variableName = node.id.name;
+          const variableValue = node.init;
+
+          // Check for variables with 'KEY' or 'SECRET' in their name
+          if (/.*(KEY|SECRET).*/.test(variableName)) {
+            if (
+              variableValue &&
+                            variableValue.type === 'Literal' &&
+                            typeof variableValue.value === 'string'
+            ) {
+              context.report({
+                node,
+                //   message: 'Secret keys should not be hardcoded.',
+                message: 'Remove hardcoded secrets. Configure your keys using environment variables.',
+
+              });
+            }
+          }
+        },
+      };
+    },
+  },
+};
+
+ // other local rules  
+ ```
+
+2. Define Local Rules
     Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example, the no-hardcoded-keys rule is enforced:
 
 ```json
