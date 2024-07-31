@@ -30,7 +30,9 @@ This setup integrates Husky, ESLint, Prettier, lint-staged, and commitlint into 
 **Getting Started with Create React App**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-                -OR-
+
+  -OR-
+  
 ```bash
 $ npx create-react-app my-app
 $ cd my-app
@@ -49,9 +51,11 @@ $ npm install --save-dev eslint lint-staged husky @commitlint/{cli,config-conven
 ```bash
 $ npx husky init
 ```
+
 This will create a .husky directory and update the package.json with a prepare script.
 
 **1 Configure Husky Hooks**
+
 * Commit Message Hook: Create .husky/commit-msg with the following content:
 ```base
 npx --no -- commitlint --edit $1
@@ -63,19 +67,21 @@ npx lint-staged
     
 
 **2 Configure lint-staged**
-Add the following configuration to your package.json to specify which files should be linted and automatically fixed before committing:
+
+* Add the following configuration to your package.json to specify which files should be linted and automatically fixed before committing:
 
 ```json
 "lint-staged": {
   "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
 }
 ```
-This configuration ensures that all JavaScript and TypeScript files will be linted and fixed (if necessary) before being committed.
 
+* This configuration ensures that all JavaScript and TypeScript files will be linted and fixed (if necessary) before being committed.
 
 ### ESLint Configuration
 
  **1 Create ESLint Configuration**
+
  Add an .eslintrc.json file with the following content:
 
  ```json
@@ -138,7 +144,8 @@ This configuration ensures that all JavaScript and TypeScript files will be lint
   }
 }
  ```
-***2. Add ESLint Scripts***
+**2. Add ESLint Scripts**
+
 Update package.json with the following linting scripts:
 ```json
 "scripts": {
@@ -150,7 +157,7 @@ Update package.json with the following linting scripts:
 ### Local Rules
 The eslint-plugin-local-rules plugin allows you to define and enforce custom linting rules.
 
- ***1 Create Local Rules Configuration***
+ **1 Create Local Rules Configuration**
 
  Add an eslint-local-rules.js file with the following content:
  
@@ -193,8 +200,9 @@ The eslint-plugin-local-rules plugin allows you to define and enforce custom lin
  // other local rules  
  ```
 
-***2. Define Local Rules***
-Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example, the no-hardcoded-keys rule is enforced:
+**2. Define Local Rules**
+
+* Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example, the no-hardcoded-keys rule is enforced:
 
 ```json
 "rules": {
@@ -202,7 +210,7 @@ Ensure the local-rules plugin is configured properly in your .eslintrc.json file
 }
 ```
 
-Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example:
+* Ensure the local-rules plugin is configured properly in your .eslintrc.json file. For example:
 
 ```json
 "plugins": [
@@ -247,17 +255,19 @@ export default SignupButton;
 ### Using the Setup
 
 **1. Run Linting**
-To manually lint your code:
+
+* To manually lint your code:
 ```bash
 $ npm run lint
 ```
 
-To automatically fix linting errors:
+* To automatically fix linting errors:
 ```bash
 $ npm run lint:fix
 ```
 
 **2. Commit Changes**
+
 Husky will automatically run linting checks on staged files before commits. If linting errors are found, the commit will be blocked until they are resolved.
 
 ### Troubleshooting
@@ -343,7 +353,6 @@ Prettier is an opinionated code formatter that enforces a consistent style by pa
   * Benefit: Combines the benefits of linting and formatting in a single workflow.
 
 ### lint-staged
-
 lint-staged is a tool that allows you to run scripts on staged files in Git.
 
 1. Targeted Linting
